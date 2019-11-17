@@ -18,6 +18,8 @@ namespace TicTacToe
 
         public Mark[] Table { get; }
 
+        public bool IsFilled => this.Table.All(x => x != Mark.Empty);
+
         public IEnumerable<int> GetEmptyIndeces()
         {
             for (int i = 0; i < this.Table.Length; ++i)
