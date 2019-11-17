@@ -31,6 +31,19 @@ namespace TicTacToe
             }
         }
 
+        public Mark? GetWinner()
+        {
+            if (CheckWin(Mark.Cross))
+            {
+                return Mark.Cross;
+            }
+            if (CheckWin(Mark.Zero))
+            {
+                return Mark.Zero;
+            }
+            return null;
+        }
+
         private bool CheckWin(Mark mark)
         {
             return
