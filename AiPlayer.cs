@@ -2,8 +2,11 @@
 {
     public class AiPlayer
     {
-        public AiPlayer()
+        private readonly Mark _mark;
+
+        public AiPlayer(Mark mark)
         {
+            this._mark = mark;
         }
     }
 }
