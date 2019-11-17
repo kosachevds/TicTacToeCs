@@ -1,18 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace TicTacToe
 {
     public class Board
     {
-        private const int BoardWidth = 3;
+        private const int TableWidth = 3;
 
         public Board()
         {
-            this.Marks = new Mark[BoardWidth * BoardWidth];
-            for (var i = 0; i < this.Marks.Length; ++i)
+            this.Table = new Mark[TableWidth * TableWidth];
+            for (var i = 0; i < this.Table.Length; ++i)
             {
-                this.Marks[i] = Mark.Empty;
+                this.Table[i] = Mark.Empty;
             }
         }
 
-        public Mark[] Marks { get; }
+        public Mark[] Table { get; }
     }
 }
