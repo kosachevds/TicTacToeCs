@@ -6,7 +6,7 @@ namespace TicTacToe
 {
     public class Board
     {
-        private const int TableWidth = 3;
+        public const int TableWidth = 3;
 
         private Board(Mark[] table)
         {
