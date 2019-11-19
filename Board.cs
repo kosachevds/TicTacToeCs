@@ -49,10 +49,7 @@ namespace TicTacToe
 
         public void CopyTo(Board other)
         {
-            for (int i = 0; i < this.Table.Length; ++i)
-            {
-                other.Table[i] = this.Table[i];
-            }
+            Array.Copy(this.Table, other.Table, this.Table.Length);
         }
 
         public Board Copy()
