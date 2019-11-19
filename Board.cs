@@ -44,6 +44,14 @@ namespace TicTacToe
             return null;
         }
 
+        public void CopyTo(Board other)
+        {
+            for (int i = 0; i < this.Table.Length; ++i)
+            {
+                other.Table[i] = this.Table[i];
+            }
+        }
+
         private bool CheckWin(Mark mark)
         {
             return
