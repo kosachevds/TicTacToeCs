@@ -19,12 +19,25 @@ namespace TicTacToe
             var aiPlayer = new AiPlayer(this._aiMark);
             while (true)
             {
-                // PrintBoard(board);
+                PrintBoard(board);
                 if (board.GetWinner() != null)
                     break;
                 DoHumanStep(board);
                 DoAiStep(board, aiPlayer);
             }
+        }
+
+        private void PrintBoard(Board board)
+        {
+            for (int i = 0; i < board.Table.Length; i++)
+            {
+                Console.Write(GetMarkChar(board.Table[i]));
+            }
+        }
+
+        private bool GetMarkChar(Mark mark)
+        {
+            throw new NotImplementedException();
         }
 
         private void DoHumanStep(Board board)
