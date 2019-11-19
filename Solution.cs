@@ -8,8 +8,13 @@ namespace TicTacToe
             this.Index = index;
         }
 
+        public Solution(int score)
+            : this(score, -1)
+        {
+        }
+
         public int Score { get; }
 
-        public int Index { get; }
+        public int Index { get;  set; }
     }
 }
