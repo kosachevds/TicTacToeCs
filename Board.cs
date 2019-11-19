@@ -52,6 +52,13 @@ namespace TicTacToe
             }
         }
 
+        public Board Copy()
+        {
+            var other = new Board();
+            this.CopyTo(other);
+            return other;
+        }
+
         private bool CheckWin(Mark mark)
         {
             return
