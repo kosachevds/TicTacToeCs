@@ -12,11 +12,25 @@ namespace TicTacToe
             this._humanMark = humanMark;
             this._aiMark = aiMark;
         }
-
         private void DoHumanStep(Board board)
         {
-            // var index = GetHumanPlayerStep();
+            var index = GetHumanPlayerStep(board);
             board.Table[index] = this._humanMark;
+        }
+
+        private int GetHumanPlayerStep(Board board)
+        {
+            while (true)
+            {
+                var key = Console.ReadKey();
+                if (key.Key != ConsoleKey.Enter)
+                    continue;
+                var index = Console.CursorTop * Board.TableWidth + Console.CursorLeft;
+                if (index < board.Table.Length)
+                {
+                    return index;
+                }
+            }
         }
 
         private void DoAiStep(Board board, AiPlayer aiPlayer)
