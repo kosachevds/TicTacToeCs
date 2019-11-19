@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,11 @@ namespace TicTacToe
     public class Board
     {
         private const int TableWidth = 3;
+
+        private Board(Mark[] table)
+        {
+            this.Table = (Mark[])table.Clone();
+        }
 
         public Board()
         {
