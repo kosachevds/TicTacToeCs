@@ -6,6 +6,18 @@ namespace TicTacToeCs
 {
     public static class Utils
     {
+        public static TItem FindWithMax<TItem, TRef>(IEnumerable<TItem> items, Func<TItem, TRef> func)
+            where TRef : IComparable
+        {
+            return FindWithComparingResult(items, func, 1);
+        }
+
+        public static TItem FindWithMin<TItem, TRef>(IEnumerable<TItem> items, Func<TItem, TRef> func)
+            where TRef : IComparable
+        {
+            return FindWithComparingResult(items, func, -1);
+        }
+
         private static TItem FindWithComparingResult<TItem, TRef>(IEnumerable<TItem> items, Func<TItem, TRef> func, int comparingResult)
             where TRef : IComparable
         {
