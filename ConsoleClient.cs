@@ -68,7 +68,7 @@ namespace TicTacToe
             while (true)
             {
                 var key = Console.ReadKey();
-                // TODO: fix handle arrow keys
+                HandleArrowKey(key.Key);
                 if (key.Key != ConsoleKey.Enter)
                     continue;
                 var index = Console.CursorTop * Board.TableWidth + Console.CursorLeft;
@@ -76,6 +76,27 @@ namespace TicTacToe
                 {
                     return index;
                 }
+            }
+        }
+
+        private static void HandleArrowKey(ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.DownArrow:
+                    Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop + 1);
+                    break;
+                case ConsoleKey.UpArrow:
+                    Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 1);
+                    break;
+                case ConsoleKey.LeftArrow:
+                    Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+                    break;
+                case ConsoleKey.RightArrow:
+                    Console.SetCursorPosition(Console.CursorLeft + 1, Console.CursorTop);
+                    break;
+                default:
+                    break;
             }
         }
 
