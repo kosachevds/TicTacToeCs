@@ -42,20 +42,26 @@ namespace TicTacToe
             {
                 strWinner = noOne;
             }
+            Console.SetCursorPosition(0, Board.TableWidth + 1);
             Console.WriteLine(endMessageFormat, strWinner);
         }
 
         private Mark RunUntilWin(Board board, AiPlayer aiPlayer)
         {
             var continueGame = true;
+            Mark? winner = null;
             while (continueGame)
             {
                 ReprintBoard(board);
+                winner = board.GetWinner();
+                if (winner != null)
+                {
+                    break;
+                }
                 DoHumanMove(board);
                 ReprintBoard(board);
                 continueGame = aiPlayer.TryMove(board);
             }
-            var winner = board.GetWinner();
             return (Mark)(winner ?? Mark.Empty);
         }
 
