@@ -47,13 +47,13 @@ namespace TicTacToe
 
         private Mark RunUntilWin(Board board, AiPlayer aiPlayer)
         {
-            var gameEnded = false;
-            while (gameEnded)
+            var continueGame = true;
+            while (continueGame)
             {
                 ReprintBoard(board);
                 DoHumanMove(board);
                 ReprintBoard(board);
-                gameEnded = !aiPlayer.TryMove(board);
+                continueGame = aiPlayer.TryMove(board);
             }
             var winner = board.GetWinner();
             return (Mark)(winner ?? Mark.Empty);
