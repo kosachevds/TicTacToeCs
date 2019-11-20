@@ -45,7 +45,7 @@ namespace TicTacToe
             switch (mark)
             {
             case Mark.Empty:
-                return ' ';
+                return '_';
             case Mark.Cross:
                 return 'x';
             case Mark.Zero:
@@ -62,6 +62,7 @@ namespace TicTacToe
 
         private int GetHumanPlayerStep(Board board)
         {
+            Console.SetCursorPosition(0, 0);
             while (true)
             {
                 var key = Console.ReadKey();
