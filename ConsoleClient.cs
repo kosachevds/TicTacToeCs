@@ -18,7 +18,8 @@ namespace TicTacToe
             var board = new Board();
             var aiPlayer = new AiPlayer(this._aiMark);
             Console.Clear();
-            RunUntilWin(board, aiPlayer);
+            var winner = RunUntilWin(board, aiPlayer);
+            PrintEndMessage(winner);
         }
 
         private void PrintEndMessage(Mark winner)
