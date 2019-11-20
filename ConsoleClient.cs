@@ -29,7 +29,7 @@ namespace TicTacToe
             }
         }
 
-        private void PrintBoard(Board board)
+        private static void PrintBoard(Board board)
         {
             for (int i = 0; i < board.Table.Length; ++i)
             {
@@ -69,9 +69,9 @@ namespace TicTacToe
             {
                 var key = Console.ReadKey();
                 HandleArrowKey(key.Key);
-                if (key.Key != ConsoleKey.Enter)
+                if (key.Key != ConsoleKey.Spacebar)
                     continue;
-                var index = Console.CursorTop * Board.TableWidth + Console.CursorLeft;
+                var index = Console.CursorTop * Board.TableWidth + (Console.CursorLeft - 1);
                 if (index < board.Table.Length)
                 {
                     return index;
@@ -84,16 +84,19 @@ namespace TicTacToe
             switch (key)
             {
                 case ConsoleKey.DownArrow:
-                    Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop + 1);
+                    Console.CursorTop = Console.CursorTop + 1;
+                    Console.CursorLeft = Console.CursorLeft - 1;
                     break;
                 case ConsoleKey.UpArrow:
-                    Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 1);
+                    Console.CursorTop = Console.CursorTop - 1;
+                    Console.CursorLeft = Console.CursorLeft - 1;
                     break;
                 case ConsoleKey.LeftArrow:
-                    Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+                    Console.CursorLeft = Console.CursorLeft - 2;
                     break;
                 case ConsoleKey.RightArrow:
-                    Console.SetCursorPosition(Console.CursorLeft + 1, Console.CursorTop);
+                    Console.CursorLeft = Console.CursorLeft + 1;
+                    Console.CursorLeft = Console.CursorLeft - 1;
                     break;
                 default:
                     break;
