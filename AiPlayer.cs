@@ -52,7 +52,7 @@ namespace TicTacToe
             {
                 return new Solution(NoOneWin);
             }
-            if (emptyCells.Count > board.Table.Length - 2)
+            if (emptyCells.Count == board.Table.Length)
             {
                 return new Solution(0, emptyCells[_random.Next(emptyCells.Count)]);
             }
