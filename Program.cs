@@ -8,6 +8,7 @@ namespace TicTacToe
         {
             var client = new ConsoleClient(Mark.Cross, Mark.Zero);
             client.Run();
+            Console.ReadKey();
         }
     }
 }
