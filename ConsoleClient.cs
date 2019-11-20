@@ -19,6 +19,7 @@ namespace TicTacToe
             var aiPlayer = new AiPlayer(this._aiMark);
             while (true)
             {
+                Console.Clear();
                 PrintBoard(board);
                 if (board.GetWinner() != null)
                     break;
