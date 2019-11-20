@@ -108,11 +108,12 @@ namespace TicTacToe
                 ReprintBoard(board);
                 if (key.Key != ConsoleKey.Spacebar)
                     continue;
-                var index = Console.CursorTop * Board.TableWidth + (Console.CursorLeft - 1);
-                if (index < board.Table.Length)
-                {
-                    return index;
-                }
+                Console.CursorLeft -= 1;
+                if (Console.CursorTop >= Board.TableWidth)
+                    continue;
+                if (Console.CursorLeft >= Board.TableWidth)
+                    continue;
+                return Console.CursorTop * Board.TableWidth + Console.CursorLeft;
             }
         }
 
