@@ -46,7 +46,7 @@ namespace TicTacToe
             foreach (var index in emptyCells)
             {
                 nextBoard.Table[index] = mark;
-                var possibleSolution = FindSolution(board, mark.GetOpponentMark());
+                var possibleSolution = FindSolution(nextBoard, mark.GetOpponentMark());
                 possibleSolution.Index = index;
                 solutions.Add(possibleSolution);
                 nextBoard.Table[index] = Mark.Empty;
