@@ -17,14 +17,14 @@ namespace TicTacToe
         {
             var board = new Board();
             var aiPlayer = new AiPlayer(this._aiMark);
+            Console.Clear();
             while (true)
             {
-                Console.Clear();
-                // TODO: reset cursor instead of clear
-                PrintBoard(board);
+                ReprintBoard(board);
                 if (board.GetWinner() != null)
                     break;
                 DoHumanStep(board);
+                ReprintBoard(board);
                 DoAiStep(board, aiPlayer);
             }
         }
@@ -114,7 +114,10 @@ namespace TicTacToe
         private void DoAiStep(Board board, AiPlayer aiPlayer)
         {
             var index = aiPlayer.DoStep(board);
-            board.Table[index] = this._aiMark;
+            if (index < 0)
+            {
+                board.Table[index] = this._aiMark;
+            }
         }
     }
 }
