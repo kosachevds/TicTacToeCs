@@ -103,6 +103,14 @@ namespace TicTacToe
             }
         }
 
+        private static void ReprintBoard(Board board)
+        {
+            var old = new { Top = Console.CursorTop, Left = Console.CursorLeft };
+            Console.SetCursorPosition(0, 0);
+            PrintBoard(board);
+            Console.SetCursorPosition(old.Left, old.Top);
+        }
+
         private void DoAiStep(Board board, AiPlayer aiPlayer)
         {
             var index = aiPlayer.DoStep(board);
