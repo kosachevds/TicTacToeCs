@@ -18,14 +18,22 @@ namespace TicTacToe
             var board = new Board();
             var aiPlayer = new AiPlayer(this._aiMark);
             Console.Clear();
+            Run(board, aiPlayer);
+        }
+
+        private Mark Run(Board board, AiPlayer aiPlayer)
+        {
             while (true)
             {
                 ReprintBoard(board);
-                if (board.GetWinner() != null)
-                    break;
                 DoHumanStep(board);
                 ReprintBoard(board);
                 DoAiStep(board, aiPlayer);
+                var winner = board.GetWinner();
+                if (winner != null)
+                {
+                    return (Mark)winner;
+                }
             }
         }
 
