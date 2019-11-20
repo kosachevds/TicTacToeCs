@@ -28,7 +28,7 @@ namespace TicTacToe
                 ReprintBoard(board);
                 DoHumanStep(board);
                 ReprintBoard(board);
-                DoAiStep(board, aiPlayer);
+                TryAiMove(board, aiPlayer);
                 var winner = board.GetWinner();
                 if (winner != null)
                 {
@@ -120,13 +120,15 @@ namespace TicTacToe
             Console.SetCursorPosition(old.Left, old.Top);
         }
 
-        private void DoAiStep(Board board, AiPlayer aiPlayer)
+        private bool TryAiMove(Board board, AiPlayer aiPlayer)
         {
             var index = aiPlayer.DoStep(board);
-            if (index >= 0)
+            if (index < 0)
             {
-                board.Table[index] = this._aiMark;
+                return false;
             }
+            board.Table[index] = this._aiMark;
+            return true;
         }
     }
 }
