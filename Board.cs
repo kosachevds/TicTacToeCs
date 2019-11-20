@@ -16,7 +16,10 @@ namespace TicTacToe
         public Board()
         {
             this.Table = new Mark[TableWidth * TableWidth];
-            Array.Fill(this.Table, Mark.Empty);
+            for (int i = 0; i < this.Table.Length; ++i)
+            {
+                this.Table[i] = Mark.Empty;
+            }
         }
 
         public Mark[] Table { get; }
