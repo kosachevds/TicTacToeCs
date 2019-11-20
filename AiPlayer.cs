@@ -25,6 +25,17 @@ namespace TicTacToe
             return FindSolution(board, this._mark).Index;
         }
 
+        public bool TryMove(Board board)
+        {
+            var index = GetMoveIndex(board);
+            if (index < 0)
+            {
+                return false;
+            }
+            board.Table[index] = this._mark;
+            return true;
+        }
+
         private Solution FindSolution(Board board, Mark mark)
         {
             var winner = board.GetWinner();
