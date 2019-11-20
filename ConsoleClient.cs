@@ -69,6 +69,7 @@ namespace TicTacToe
             {
                 var key = Console.ReadKey();
                 HandleArrowKey(key.Key);
+                ReprintBoard(board);
                 if (key.Key != ConsoleKey.Spacebar)
                     continue;
                 var index = Console.CursorTop * Board.TableWidth + (Console.CursorLeft - 1);
