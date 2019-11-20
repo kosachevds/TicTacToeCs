@@ -29,9 +29,13 @@ namespace TicTacToe
 
         private void PrintBoard(Board board)
         {
-            for (int i = 0; i < board.Table.Length; i++)
+            for (int i = 0; i < board.Table.Length; ++i)
             {
                 Console.Write(GetMarkChar(board.Table[i]));
+                if ((i + 1) % Board.TableWidth == 0)
+                {
+                    Console.WriteLine();
+                }
             }
         }
 
