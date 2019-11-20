@@ -18,7 +18,7 @@ namespace TicTacToe
             this.Width = width;
             this.CellCount = width * width;
             this.Table = new Mark[this.CellCount];
-            for (int i = 0; i < this.Table.Length; ++i)
+            for (int i = 0; i < this.CellCount; ++i)
             {
                 this.Table[i] = Mark.Empty;
             }
@@ -34,7 +34,7 @@ namespace TicTacToe
 
         public IEnumerable<int> GetEmptyIndeces()
         {
-            for (int i = 0; i < this.Table.Length; ++i)
+            for (int i = 0; i < this.CellCount; ++i)
             {
                 if (this.Table[i] == Mark.Empty)
                 {
@@ -58,7 +58,7 @@ namespace TicTacToe
 
         public void CopyTo(Board other)
         {
-            Array.Copy(this.Table, other.Table, this.Table.Length);
+            Array.Copy(this.Table, other.Table, this.CellCount);
         }
 
         public Board Copy()
