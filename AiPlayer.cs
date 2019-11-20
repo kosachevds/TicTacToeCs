@@ -20,7 +20,7 @@ namespace TicTacToe
             this._opponent = mark.GetOpponentMark();
         }
 
-        public int DoStep(Board board)
+        public int GetMoveIndex(Board board)
         {
             return FindSolution(board, this._mark).Index;
         }

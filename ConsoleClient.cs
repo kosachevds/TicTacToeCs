@@ -26,7 +26,7 @@ namespace TicTacToe
             while (true)
             {
                 ReprintBoard(board);
-                DoHumanStep(board);
+                DoHumanMove(board);
                 ReprintBoard(board);
                 TryAiMove(board, aiPlayer);
                 var winner = board.GetWinner();
@@ -63,14 +63,14 @@ namespace TicTacToe
             throw new ArgumentException();
         }
 
-        private void DoHumanStep(Board board)
+        private void DoHumanMove(Board board)
         {
-            var index = GetHumanPlayerStep(board);
+            var index = GetHumanPlayerMove(board);
             // TODO: check index's cell for Empty
             board.Table[index] = this._humanMark;
         }
 
-        private int GetHumanPlayerStep(Board board)
+        private int GetHumanPlayerMove(Board board)
         {
             Console.SetCursorPosition(0, 0);
             while (true)
@@ -122,7 +122,7 @@ namespace TicTacToe
 
         private bool TryAiMove(Board board, AiPlayer aiPlayer)
         {
-            var index = aiPlayer.DoStep(board);
+            var index = aiPlayer.GetMoveIndex(board);
             if (index < 0)
             {
                 return false;
