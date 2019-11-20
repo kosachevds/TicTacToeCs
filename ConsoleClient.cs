@@ -112,26 +112,35 @@ namespace TicTacToe
 
         private static void HandleArrowKey(ConsoleKey key)
         {
+            var left = Console.CursorLeft;
+            var top = Console.CursorTop;
             switch (key)
             {
                 case ConsoleKey.DownArrow:
-                    Console.CursorTop = Console.CursorTop + 1;
-                    Console.CursorLeft = Console.CursorLeft - 1;
+                    top += 1;
                     break;
                 case ConsoleKey.UpArrow:
-                    Console.CursorTop = Console.CursorTop - 1;
-                    Console.CursorLeft = Console.CursorLeft - 1;
+                    top -= 1;
                     break;
                 case ConsoleKey.LeftArrow:
-                    Console.CursorLeft = Console.CursorLeft - 2;
+                    left -= 1;
                     break;
                 case ConsoleKey.RightArrow:
-                    Console.CursorLeft = Console.CursorLeft + 1;
-                    Console.CursorLeft = Console.CursorLeft - 1;
+                    left += 1;
                     break;
                 default:
-                    break;
+                    return;
             }
+            left -= 1;
+            if (left < 0)
+            {
+                left = 0;
+            }
+            if (top < 0)
+            {
+                top = 0;
+            }
+            Console.SetCursorPosition(left, top);
         }
 
         private static void ReprintBoard(Board board)
