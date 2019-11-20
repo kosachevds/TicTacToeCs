@@ -114,7 +114,7 @@ namespace TicTacToe
         private void DoAiStep(Board board, AiPlayer aiPlayer)
         {
             var index = aiPlayer.DoStep(board);
-            if (index < 0)
+            if (index >= 0)
             {
                 board.Table[index] = this._aiMark;
             }
