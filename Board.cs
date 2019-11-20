@@ -6,16 +6,18 @@ namespace TicTacToe
 {
     public class Board
     {
-        public const int TableWidth = 3;
+        public const int DefaultWidth = 3;
 
         private Board(Mark[] table)
         {
             this.Table = (Mark[])table.Clone();
         }
 
-        public Board()
+        public Board(int width = DefaultWidth)
         {
-            this.Table = new Mark[TableWidth * TableWidth];
+            this.Width = width;
+            this.CellCount = width * width;
+            this.Table = new Mark[this.CellCount];
             for (int i = 0; i < this.Table.Length; ++i)
             {
                 this.Table[i] = Mark.Empty;
@@ -23,6 +25,10 @@ namespace TicTacToe
         }
 
         public Mark[] Table { get; }
+
+        public int Width { get; }
+
+        public int CellCount { get; }
 
         public bool IsFilled => this.Table.All(x => x != Mark.Empty);
 

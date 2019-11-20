@@ -19,10 +19,10 @@ namespace TicTacToe
             var aiPlayer = new AiPlayer(this._aiMark);
             Console.Clear();
             var winner = RunUntilWin(board, aiPlayer);
-            PrintEndMessage(winner);
+            PrintEndMessage(board, winner);
         }
 
-        private void PrintEndMessage(Mark winner)
+        private void PrintEndMessage(Board board, Mark winner)
         {
             const string endMessageFormat = "{0} won!";
             const string ai = "AI";
@@ -42,7 +42,7 @@ namespace TicTacToe
             {
                 strWinner = noOne;
             }
-            Console.SetCursorPosition(0, Board.TableWidth + 1);
+            Console.SetCursorPosition(0, board.Width + 1);
             Console.WriteLine(endMessageFormat, strWinner);
         }
 
@@ -70,7 +70,7 @@ namespace TicTacToe
             for (int i = 0; i < board.Table.Length; ++i)
             {
                 Console.Write(GetMarkChar(board.Table[i]));
-                if ((i + 1) % Board.TableWidth == 0)
+                if ((i + 1) % board.Width == 0)
                 {
                     Console.WriteLine();
                 }
@@ -109,11 +109,11 @@ namespace TicTacToe
                 if (key.Key != ConsoleKey.Spacebar)
                     continue;
                 Console.CursorLeft -= 1;
-                if (Console.CursorTop >= Board.TableWidth)
+                if (Console.CursorTop >= board.Width)
                     continue;
-                if (Console.CursorLeft >= Board.TableWidth)
+                if (Console.CursorLeft >= board.Width)
                     continue;
-                return Console.CursorTop * Board.TableWidth + Console.CursorLeft;
+                return Console.CursorTop * board.Width + Console.CursorLeft;
             }
         }
 
