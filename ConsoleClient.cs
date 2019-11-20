@@ -35,9 +35,18 @@ namespace TicTacToe
             }
         }
 
-        private bool GetMarkChar(Mark mark)
+        private char GetMarkChar(Mark mark)
         {
-            throw new NotImplementedException();
+            switch (mark)
+            {
+            case Mark.Empty:
+                return ' ';
+            case Mark.Cross:
+                return 'x';
+            case Mark.Zero:
+                return 'o';
+            }
+            throw new ArgumentException();
         }
 
         private void DoHumanStep(Board board)
