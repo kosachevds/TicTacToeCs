@@ -6,6 +6,7 @@ namespace TicTacToe
 {
     public class AiPlayer
     {
+        private static readonly Random _random = new Random();
         private const int AiWinScore = 1;
         private const int AiLoseScore = -1;
         private const int NoOneWin = 0;
@@ -35,10 +36,14 @@ namespace TicTacToe
             {
                 return new Solution(AiLoseScore);
             }
-            var emptyCells = board.GetEmptyIndeces();
+            var emptyCells = board.GetEmptyIndeces().ToList();
             if (!emptyCells.Any())
             {
                 return new Solution(NoOneWin);
+            }
+            if (emptyCells.Count > board.Table.Length - 2)
+            {
+                return new Solution(0, emptyCells[_random.Next(emptyCells.Count)]);
             }
 
             var nextBoard = board.Copy();
