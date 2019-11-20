@@ -6,6 +6,8 @@ namespace TicTacToe
     {
         static void Main(string[] args)
         {
+            var client = new ConsoleClient(Mark.Cross, Mark.Zero);
+            client.Run();
         }
     }
 }
