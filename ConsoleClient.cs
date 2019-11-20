@@ -41,7 +41,7 @@ namespace TicTacToe
             }
         }
 
-        private char GetMarkChar(Mark mark)
+        private static char GetMarkChar(Mark mark)
         {
             switch (mark)
             {
