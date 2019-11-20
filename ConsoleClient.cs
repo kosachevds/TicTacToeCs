@@ -20,6 +20,7 @@ namespace TicTacToe
             while (true)
             {
                 Console.Clear();
+                // TODO: reset cursor instead of clear
                 PrintBoard(board);
                 if (board.GetWinner() != null)
                     break;
@@ -57,6 +58,7 @@ namespace TicTacToe
         private void DoHumanStep(Board board)
         {
             var index = GetHumanPlayerStep(board);
+            // TODO: check index's cell for Empty
             board.Table[index] = this._humanMark;
         }
 
@@ -66,6 +68,7 @@ namespace TicTacToe
             while (true)
             {
                 var key = Console.ReadKey();
+                // TODO: fix handle arrow keys
                 if (key.Key != ConsoleKey.Enter)
                     continue;
                 var index = Console.CursorTop * Board.TableWidth + Console.CursorLeft;
