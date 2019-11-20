@@ -21,6 +21,29 @@ namespace TicTacToe
             RunUntilWin(board, aiPlayer);
         }
 
+        private void PrintEndMessage(Mark winner)
+        {
+            const string endMessageFormat = "{0} won!";
+            const string ai = "AI";
+            const string human = "Human";
+            const string noOne = "No one";
+
+            var strWinner = String.Empty;
+            if (winner == this._aiMark)
+            {
+                strWinner = ai;
+            }
+            else if (winner == this._humanMark)
+            {
+                strWinner = human;
+            }
+            else
+            {
+                strWinner = noOne;
+            }
+            Console.WriteLine(endMessageFormat, strWinner);
+        }
+
         private Mark RunUntilWin(Board board, AiPlayer aiPlayer)
         {
             var gameEnded = false;
